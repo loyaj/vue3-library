@@ -1,5 +1,9 @@
-<script setup>
-defineProps({
+<script setup lang="ts">
+interface Props {
+  text?: string;
+}
+
+withDefaults(defineProps<Props>(), {
   text: { type: String, default: "Content goes here" }
 });
 </script>

@@ -1,5 +1,10 @@
-<script setup>
-defineProps({
+<script setup lang="ts">
+interface Props {
+  text?: string;
+  fontSize?: number;
+}
+
+withDefaults(defineProps<Props>(), {
   text: { type: String, default: "Content goes here" },
   fontSize: { type: Number, default: 14 }
 });

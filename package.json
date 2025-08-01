@@ -5,18 +5,23 @@
   "exports": {
     "./package.json": "./package.json",
     "./style.css": "./dist/style.css",
+    "./dist/*.d.ts": "./dist/*.d.ts",
     "./dist/*": "./dist/*",
     "./*": "./dist/components/*.js"
   },
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "vite build",
-    "prepare": "npm run build"
+    "build:types": "vue-tsc --declaration --emitDeclarationOnly --outDir dist",
+    "prepare": "npm run build && npm run build:types"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.6.2",
     "glob": "^10.4.5",
+    "typescript": "^5.9.2",
     "vite": "^4.5.3",
-    "vue": "^3.5.13"
+    "vue": "^3.5.13",
+    "vue-tsc": "^3.0.4"
   },
   "peerDependencies": {
     "vue": ">=3.5 <3.6"

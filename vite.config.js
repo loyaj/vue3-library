@@ -28,6 +28,14 @@ export default defineConfig({
       },
       formats: ["es"]
     },
+    rollupOptions: {
+      external: ["vue"],
+      output: {
+        globals: {
+          vue: "Vue"
+        }
+      }
+    },
     sourcemap: true,
     minify: false
   },
